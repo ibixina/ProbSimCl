@@ -7,9 +7,9 @@
 N = 10000
 
 probs = list()
-RatioAtoB = list()
+diffBetweenAandB = list()
 
-testVals = list(c(3,2), c(30,20), c(150,100), c(300,200), c(3000,2000))
+testVals = list(c(51,49), c(55,45), c(60,40), c(75,25), c(90,10))
 for (val in testVals){
   a = val[1]
   b = val[2]
@@ -52,9 +52,9 @@ print(a)
 print(b)
 print(probAalwayslead)
 print(probAnevertrail)
-RatioAtoB = append(RatioAtoB, (a/b))
+diffBetweenAandB = append(diffBetweenAandB, (a-b))
 probs = append(probs, probAnevertrail)
 
 }
-plot(RatioAtoB, probs)
+plot(diffBetweenAandB, probs)
 

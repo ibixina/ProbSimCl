@@ -1,4 +1,7 @@
-win = 5
+import sys
+
+args = sys.argv
+
 all_states = []
 
 
@@ -28,13 +31,22 @@ def check(h, t, history):
             new_history.append('T')
             check(h, t + 1, new_history)
 
-h = 3
-t = 2
-check(h, t, [])
-for i in all_states:
-    print(''.join(i))
+def main():
+    global win
+    h = 3
+    t = 2
+    if (args):
+        h = int(args[1])
+        t = int(args[2])
+        win = int(args[3])
+    check(h, t, [])
+    for i in all_states:
+        print(''.join(i))
 
-print('Number of heads wins:', noofhwins)
-print('Number of tails wins:', nooftwins)
+    print('Number of heads wins:', noofhwins)
+    print('Number of tails wins:', nooftwins)
 
-print("Probability of heads win:", noofhwins / (noofhwins + nooftwins))
+    print("Probability of heads win:", noofhwins / (noofhwins + nooftwins))
+
+if ("__main__" == __name__):
+    main()
